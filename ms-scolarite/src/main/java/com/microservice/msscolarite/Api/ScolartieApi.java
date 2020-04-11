@@ -47,4 +47,11 @@ public class ScolartieApi {
         return etudiantRepository.findByIdFormation(idf);
     }
 
+    @GetMapping("/etudiants/info/{id}")
+    public Etudiant getInfoScolare(@PathVariable("id") Long ide) {
+        Etudiant etud = etudiantRepository.findById(ide).get();
+
+        return etud;
+    }
+
 }

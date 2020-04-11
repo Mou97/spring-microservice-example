@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class DemoApplication implements CommandLineRunner {
 
 	@Autowired
@@ -28,8 +30,8 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Etudiant etud1 = etudiantRepostiroy.save(new Etudiant(null, (long) 122, 500.79f, false, null));
-		Etudiant etud2 = etudiantRepostiroy.save(new Etudiant(null, (long) 433, 800.33f, false, null));
+		Etudiant etud1 = etudiantRepostiroy.save(new Etudiant(null, (long) 122, 500.79f, false, null, null));
+		Etudiant etud2 = etudiantRepostiroy.save(new Etudiant(null, (long) 433, 800.33f, false, null, null));
 
 		virementRepository.save(new Virement(null, 130.45f, Date.valueOf("2019-01-31"), etud1));
 		virementRepository.save(new Virement(null, 894.96f, Date.valueOf("2019-05-18"), etud1));
