@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("api")
@@ -39,6 +40,11 @@ public class ScolartieApi {
         etud.setVirements(virements);
 
         return etud;
+    }
+
+    @GetMapping(value = "/formations/{id}/etudiants")
+    public Collection<Etudiant> gEtudiantsByFormation(@PathVariable("id") Long idf) {
+        return etudiantRepository.findAllByIdFormation(idf);
     }
 
 }
