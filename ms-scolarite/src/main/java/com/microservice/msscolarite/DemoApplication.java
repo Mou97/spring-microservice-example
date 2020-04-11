@@ -34,12 +34,14 @@ public class DemoApplication implements CommandLineRunner {
 		Etablissement e1 = etablissementRepository.save(new Etablissement(null, "esi-sba", null));
 		Etablissement e2 = etablissementRepository.save(new Etablissement(null, "univ-sba", null));
 
-		etudiantRepository.save(new Etudiant(null, "malki", Date.valueOf("1999-01-01"), "4isi", null, e1, 1L, null));
-		etudiantRepository.save(new Etudiant(null, "ali", Date.valueOf("1995-08-11"), "4siw", null, e1, 2L, null));
 		etudiantRepository
-				.save(new Etudiant(null, "karim", Date.valueOf("1996-11-22"), "MatserSiC", null, e2, 1L, null));
+				.save(new Etudiant(null, "malki", Date.valueOf("1999-01-01"), "4isi", null, e1, 1L, null, null));
 		etudiantRepository
-				.save(new Etudiant(null, "fouad", Date.valueOf("2000-02-15"), "MasterSiR", null, e2, 1L, null));
+				.save(new Etudiant(null, "ali", Date.valueOf("1995-08-11"), "4siw", null, e1, 2L, null, null));
+		etudiantRepository
+				.save(new Etudiant(null, "karim", Date.valueOf("1996-11-22"), "MatserSiC", null, e2, 1L, null, null));
+		etudiantRepository
+				.save(new Etudiant(null, "fouad", Date.valueOf("2000-02-15"), "MasterSiR", null, e2, 1L, null, null));
 	}
 
 }

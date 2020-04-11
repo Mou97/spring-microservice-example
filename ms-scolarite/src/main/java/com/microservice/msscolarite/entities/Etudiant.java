@@ -1,5 +1,6 @@
 package com.microservice.msscolarite.entities;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import com.microservice.msscolarite.model.Formation;
+import com.microservice.msscolarite.model.Virement;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,5 +45,8 @@ public class Etudiant {
 
     @Transient
     private Formation formation;
+
+    @Transient
+    private Collection<Virement> virements;
 
 }

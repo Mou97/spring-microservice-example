@@ -1,9 +1,13 @@
 package com.microservice.msscolarite.Api;
 
+import java.util.Collection;
+
 import com.microservice.msscolarite.dao.EtudiantRepository;
 import com.microservice.msscolarite.entities.Etudiant;
 import com.microservice.msscolarite.model.Formation;
+import com.microservice.msscolarite.model.Virement;
 import com.microservice.msscolarite.proxy.FormationProxy;
+import com.microservice.msscolarite.proxy.VirementProxy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +24,19 @@ public class ScolartieApi {
     @Autowired
     FormationProxy formationProxy;
 
+    @Autowired
+    VirementProxy virementProxy;
+
     @GetMapping("/etudiants/{id}")
     public Etudiant getEtudiantWithFornation(@PathVariable("id") Long ide) {
         Etudiant etud = etudiantRepository.findById(ide).get();
 
         Formation formation = formationProxy.getFormation(etud.getIdFormation());
 
+        Collection<Virement> virements = virementProxy.getVirements(ide);
+
         etud.setFormation(formation);
+        etud.setVirements(virements);
 
         return etud;
     }
