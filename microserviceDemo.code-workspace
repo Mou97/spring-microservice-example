@@ -9,5 +9,8 @@
 	{
 		"path": "ms-scolarite"
 	}
-]
+],
+"settings": {
+	"java.configuration.updateBuildConfiguration": "automatic"
+}
 }

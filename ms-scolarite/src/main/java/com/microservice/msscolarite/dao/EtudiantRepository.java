@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @RepositoryRestResource
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
-    List<Etudiant> findAllByIdFormation(Long idFormation);
+    List<Etudiant> findByIdFormation(Long idFormation);
 }
