@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 public class Etudiant {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEtudiant;
 
     private Long nComptCCP;
